@@ -1,0 +1,51 @@
+#0
+code = arm.set_position(*[0.0, 0.0, 225.0, 180.0, 0.0, 0.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+time.sleep(1)
+
+#1
+code = arm.set_position(*[425.0, 0.0, 225.0, 180.0, 0.0, 0.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+time.sleep(1)
+
+#2
+code = arm.set_position(*[0.0, 405.0, 225.0, 180.0, 0.0, 0.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+time.sleep(1)
+
+#3
+code = arm.set_position(*[-425.0, 0.0, 225.0, 180.0, 0.0, 0.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+time.sleep(1)
+
+#4
+code = arm.set_position(*[0.0, -405.0, 225.0, 180.0, 0.0, 0.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+time.sleep(1)
+
+#5
+code = arm.set_position(*[425.0, 405.0, 225.0, 180.0, 0.0, 0.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+time.sleep(1)
+
+#6
+code = arm.set_position(*[-425.0, 405.0, 225.0, 180.0, 0.0, 0.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+time.sleep(1)
+
+#7
+code = arm.set_position(*[-425.0, -405.0, 225.0, 180.0, 0.0, 0.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+time.sleep(1)
+
+#8
+code = arm.set_position(*[425.0, -405.0, 225.0, 180.0, 0.0, 0.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+time.sleep(1)
+
+#9
+code = arm.set_position(*[212.5, 202.5, 225.0, 180.0, 0.0, 0.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+time.sleep(1)
+
+#10
+code = arm.set_position(*[-212.5, 202.5, 225.0, 180.0, 0.0, 0.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+time.sleep(1)
+
+#11
+code = arm.set_position(*[-212.5, -202.5, 225.0, 180.0, 0.0, 0.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+time.sleep(1)
+
+#11
+code = arm.set_position(*[212.5, -202.5, 225.0, 180.0, 0.0, 0.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+time.sleep(1)
