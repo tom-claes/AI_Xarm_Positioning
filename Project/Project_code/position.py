@@ -70,14 +70,12 @@ def is_within_zone4(position):
 
 # Define the parameters for the arm
 variables = {}
-params = {'speed': 100, 'acc': 2000, 'angle_speed': 20, 'angle_acc': 500, 'events': {}, 'variables': variables, 'callback_in_thread': True, 'quit': False}
-x_val = 425 # Define the boundary x coordinate value
-y_val = 405 # Define the boundary y coordinate value
-height = 400 # Define the height of the arm
+params = {'speed': 250, 'acc': 2000, 'angle_speed': 20, 'angle_acc': 500, 'events': {}, 'variables': variables, 'callback_in_thread': True, 'quit': False}
+x_val = 410# Define the boundary x coordinate value
+y_val = 380 # Define the boundary y coordinate value
+height = 330 # Define the height of the arm
 current_position = None # Variable to store the current position of the arm => no initial value needed since every use the position is called on
 
-
-#print("Initial position: ", arm.get_position(), end="\n\n")
 
 # Define action functions responsible for moving the arm to a specified positions
 # Function to move to position 1
@@ -89,13 +87,13 @@ def action1():
 
     if is_within_zone3(current_position):
         print("Passing through zone 2")
-        code = arm.set_position(*[x_val/2, y_val/2, height , 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+        code = arm.set_position(*[(x_val*3)/4, (y_val*3)/4, height , 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
     
     elif is_within_zone4(current_position):
         print("Passing through zone 3")
-        code = arm.set_position(*[-x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+        code = arm.set_position(*[(-x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
         print("Passing through zone 2")
-        code = arm.set_position(*[x_val/2, y_val/2, height , 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+        code = arm.set_position(*[(x_val*3)/4, (y_val*3)/4, height , 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
 
     print("Moving to position 1")
     code = arm.set_position(*[x_val, -y_val, height , 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
@@ -109,13 +107,13 @@ def action2():
 
     if is_within_zone3(current_position):
         print("Passing through zone 2")
-        code = arm.set_position(*[x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+        code = arm.set_position(*[(x_val*3)/4, (y_val*3)/4, height , 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
     
     elif is_within_zone4(current_position):
         print("Passing through zone 3")
-        code = arm.set_position(*[-x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+        code = arm.set_position(*[(-x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
         print("Passing through zone 2")
-        code = arm.set_position(*[x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+        code = arm.set_position(*[(x_val*3)/4, (y_val*3)/4, height , 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
 
     print("Moving to position 2")
     code = arm.set_position(*[x_val/2, -y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
@@ -129,7 +127,7 @@ def action3():
     
     if is_within_zone4(current_position):
         print("Passing through zone 3")
-        code = arm.set_position(*[-x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+        code = arm.set_position(*[(-x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
 
     print("Moving to position 3")
     code = arm.set_position(*[x_val, y_val, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
@@ -143,14 +141,14 @@ def action4():
 
     if is_within_zone2(current_position):
         print("Passing through zone 3")
-        code = arm.set_position(*[-x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+        code = arm.set_position(*[(-x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
         
     
     elif is_within_zone1(current_position):
         print("Passing through zone 2")
-        code = arm.set_position(*[x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+        code = arm.set_position(*[(x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
         print("Passing through zone 3")
-        code = arm.set_position(*[-x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+        code = arm.set_position(*[(-x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
 
     print("Moving to position 4")
     code = arm.set_position(*[-x_val/2, -y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
@@ -164,7 +162,7 @@ def action6():
 
     if is_within_zone4(current_position):
         print("Passing through zone 3")
-        code = arm.set_position(*[-x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+        code = arm.set_position(*[(-x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
 
     print("Moving to position 6")
     code = arm.set_position(*[x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
@@ -178,14 +176,14 @@ def action7():
 
     if is_within_zone2(current_position):
         print("Passing through zone 3")
-        code = arm.set_position(*[-x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+        code = arm.set_position(*[(-x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
         
     
     elif is_within_zone1(current_position):
         print("Passing through zone 2")
-        code = arm.set_position(*[x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+        code = arm.set_position(*[(x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
         print("Passing through zone 3")
-        code = arm.set_position(*[-x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+        code = arm.set_position(*[(-x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
 
     print("Moving to position 7")
     code = arm.set_position(*[-x_val, -y_val, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
@@ -199,7 +197,7 @@ def action8():
 
     if is_within_zone1(current_position):
         print("Passing through zone 2")
-        code = arm.set_position(*[x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+        code = arm.set_position(*[(x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
 
     print("Moving to position 8")
     code = arm.set_position(*[-x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
@@ -213,79 +211,94 @@ def action9():
 
     if is_within_zone1(current_position):
         print("Passing through zone 2")
-        code = arm.set_position(*[x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+        code = arm.set_position(*[(x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
 
     print("Moving to position 9")
     code = arm.set_position(*[-x_val, y_val, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
 
+
 # Function to move to position up
-def actionUp():
+# def actionUp():
         
-    get_current_position()
+#     get_current_position()
 
-    global current_position
+#     global current_position
 
-    if is_within_zone1(current_position):
-        print("Passing through zone 2")
-        code = arm.set_position(*[x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
-
-    print("Moving to position Up")
-    code = arm.set_position(*[-x_val, 0.0, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
-
-# Function to move to position down
-def actionDown():
-        
-    get_current_position()
-
-    global current_position
-
-    if is_within_zone3(current_position):
-        print("Passing through zone 2")
-        code = arm.set_position(*[x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+#     if is_within_zone1(current_position):
+#         print("Passing through zone 2")
+#         code = arm.set_position(*[(x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
     
-    elif is_within_zone4(current_position):
-        print("Passing through zone 3")
-        code = arm.set_position(*[-x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
-        print("Passing through zone 2")
-        code = arm.set_position(*[x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+#     if is_within_zone2(current_position):
+#         print("Passing through zone 3")
+#         code = arm.set_position(*[(-x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+
+#     print("Moving to position Up")
+#     code = arm.set_position(*[-x_val, 4.0, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+
+# # Function to move to position down
+# def actionDown():
+        
+#     get_current_position()
+
+#     global current_position
+
+#     if is_within_zone3(current_position):
+#         print("Passing through zone 2")
+#         code = arm.set_position(*[(x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
     
-    print("Moving to position Down")
-    code = arm.set_position(*[x_val, 0.0, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+#     elif is_within_zone4(current_position):
+#         print("Passing through zone 3")
+#         code = arm.set_position(*[(-x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+#         print("Passing through zone 2")
+#         code = arm.set_position(*[(-x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+    
+#     print("Moving to position Down")
+#     code = arm.set_position(*[x_val, -4.0, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
 
-# Function to move to position left
-def actionLeft():
+# # Function to move to position left
+# def actionLeft():
         
-    get_current_position()
+#     get_current_position()
 
-    global current_position
+#     global current_position
 
-    if is_within_zone2(current_position):
-        print("Passing through zone 3")
-        code = arm.set_position(*[-x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+#     if is_within_zone3(current_position):
+#         print("Passing through zone 3")
+#         code = arm.set_position(*[(-x_val*3)/4, (-y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+        
+
+#     elif is_within_zone2(current_position):
+#         print("Passing through zone 3")
+#         code = arm.set_position(*[(-x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
         
     
-    elif is_within_zone1(current_position):
-        print("Passing through zone 2")
-        code = arm.set_position(*[x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
-        print("Passing through zone 3")
-        code = arm.set_position(*[-x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+#     elif is_within_zone1(current_position):
+#         print("Passing through zone 2")
+#         code = arm.set_position(*[(x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+#         print("Passing through zone 3")
+#         code = arm.set_position(*[(-x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
 
-    print("Moving to position Left")
-    code = arm.set_position(*[0.0, -y_val, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+#     print("Moving to position Left")
+#     code = arm.set_position(*[-4.0, -y_val, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
 
-# Function to move to position right
-def actionRight():
+# # Function to move to position right
+# def actionRight():
         
-    get_current_position()
+#     get_current_position()
 
-    global current_position
+#     global current_position
 
-    if is_within_zone4(current_position):
-        print("Passing through zone 3")
-        code = arm.set_position(*[-x_val/2, y_val/2, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+#     if is_within_zone4(current_position):
+#         print("Passing through zone 3")
+#         code = arm.set_position(*[(-x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+    
+#     elif is_within_zone1(current_position):
+#         print("Passing through zone 2")
+#         code = arm.set_position(*[(x_val*3)/4, (y_val*3)/4, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+       
 
-    print("Moving to position Right")
-    code = arm.set_position(*[0.0, y_val, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
+#     print("Moving to position Right")
+#     code = arm.set_position(*[4.0, y_val, height, 180.0, 0.0, 90.0], speed=params['speed'], mvacc=params['acc'], radius=-1.0, wait=True)
 
 def get_current_position():
     # Retrieve current Cartesian position of the arm
@@ -306,10 +319,10 @@ keyboard.add_hotkey('6', action6)
 keyboard.add_hotkey('7', action7)
 keyboard.add_hotkey('8', action8)
 keyboard.add_hotkey('9', action9)
-keyboard.add_hotkey('up', actionUp)
-keyboard.add_hotkey('down', actionDown)
-keyboard.add_hotkey('left', actionLeft)
-keyboard.add_hotkey('right', actionRight)
+# keyboard.add_hotkey('up', actionUp)
+# keyboard.add_hotkey('down', actionDown)
+# keyboard.add_hotkey('left', actionLeft)
+# keyboard.add_hotkey('right', actionRight)
 
 
 # Function to handle errors and warnings
