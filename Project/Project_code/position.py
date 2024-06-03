@@ -70,7 +70,7 @@ def is_within_zone4(position):
 
 # Define the parameters for the arm
 variables = {}
-params = {'speed': 250, 'acc': 2000, 'angle_speed': 20, 'angle_acc': 500, 'events': {}, 'variables': variables, 'callback_in_thread': True, 'quit': False}
+params = {'speed': 300, 'acc': 2000, 'angle_speed': 20, 'angle_acc': 500, 'events': {}, 'variables': variables, 'callback_in_thread': True, 'quit': False}
 x_val = 410# Define the boundary x coordinate value
 y_val = 380 # Define the boundary y coordinate value
 height = 330 # Define the height of the arm
@@ -124,6 +124,9 @@ def action3():
     get_current_position()
 
     global current_position
+
+    if get_joint0_angle_degrees() > 270:
+        action7()
     
     if is_within_zone4(current_position):
         print("Passing through zone 3")
@@ -307,6 +310,25 @@ def get_current_position():
     current_position = arm.get_position()
 
     print("Current position: ", current_position)
+
+def get_joint0_angle_degrees():
+    # Get the current angles of all the joints
+    joint_angles_tuple = arm.get_servo_angle()
+
+    # Check if joint_angles_tuple is None
+    if joint_angles_tuple is None:
+        print("Error: Failed to get joint angles.")
+        return None
+
+    # Extract the list of joint angles from the tuple
+    joint_angles = joint_angles_tuple[1]
+
+    # Extract the angle of the 0 joint
+    joint0_angle_degrees = joint_angles[0]
+
+    print("Joint 0 angle in degrees: ", joint0_angle_degrees)
+
+    return joint0_angle_degrees
 
 
 
